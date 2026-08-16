@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convite | Manuel Belchior & Yolanda Manuel</title>
+<style>
+body{margin:0;background:#090909;color:#f5ead2;font-family:Georgia,serif}
+.wrap{max-width:620px;margin:auto;padding:28px 18px 50px}
+.card{border:1px solid #b88a32;padding:28px 22px;text-align:center;background:linear-gradient(145deg,#0a0a0a,#17120a);box-shadow:0 0 30px #000}
+h1{font-size:30px;letter-spacing:2px;color:#d5a94d;margin:8px 0 24px}
+.names{font-size:42px;line-height:1.15;color:#e3bd68;font-style:italic}
+.rings{font-size:34px;margin:12px}
+.quote{margin:24px auto;max-width:480px;line-height:1.6;font-size:17px}
+.guest{margin:26px 0;padding:14px;border:1px solid #b88a32;background:#f3ead7;color:#241b0d;border-radius:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.box{border-top:1px solid #b88a32;padding-top:12px}
+.gold{color:#d5a94d;font-weight:bold}
+.qr{background:#fff;display:inline-block;padding:12px;border-radius:10px;margin:10px}
+button{background:#c99a3e;color:#111;border:0;border-radius:7px;padding:13px 22px;font-weight:bold;font-size:16px}
+input{width:90%;padding:12px;border-radius:6px;border:1px solid #b88a32;margin:8px 0}
+.small{font-size:13px;opacity:.75}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="gold">A FAMÍLIA BELCHIOR E A FAMÍLIA CAMBIETE</div>
+    <h1>CONVITE DE CASAMENTO</h1>
+    <div class="names">Manuel Belchior</div>
+    <div class="rings">💍 ♡ 💍</div>
+    <div class="names">Yolanda Manuel</div>
+
+    <p class="quote">
+      “Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.”
+      <br><span class="gold">Colossenses 3:14</span>
+    </p>
+
+    <div class="guest">
+      <div class="small">CONVIDADO(A)</div>
+      <strong>Sr. João Manuel</strong>
+      <div class="small">Código: MBYM-001</div>
+    </div>
+
+    <div class="grid">
+      <div class="box"><span class="gold">CERIMÓNIA RELIGIOSA</span><br>
+      Igreja Sé Catedral<br><strong>09H00</strong></div>
+      <div class="box"><span class="gold">COPO D'ÁGUA</span><br>
+      Salão da Centralidade</div>
+    </div>
+
+    <h2 class="gold">18 DE DEZEMBRO DE 2026</h2>
+
+    <p>Será uma alegria celebrar este dia tão especial na sua presença.</p>
+
+    <div class="qr"><img src="qr_convite_MBYM-001.png" width="210" alt="QR Code do convite"></div>
+    <div class="small">Apresente este código na recepção.</div>
+
+    <hr style="border:0;border-top:1px solid #6f5528;margin:28px 0">
+
+    <h3 class="gold">CONFIRMAÇÃO DE PRESENÇA</h3>
+    <input id="nome" placeholder="Seu nome">
+    <br>
+    <input id="pessoas" type="number" min="1" max="10" value="1" placeholder="Número de pessoas">
+    <br>
+    <button onclick="confirmar()">Confirmar presença</button>
+    <p id="msg"></p>
+
+    <p class="small">Contactos: 930 974 909 · 945 234 287 · 922 291 668 · 936 883 867</p>
+  </div>
+</div>
+<script>
+function confirmar(){
+  const n=document.getElementById('nome').value.trim();
+  const p=document.getElementById('pessoas').value;
+  const m=document.getElementById('msg');
+  if(!n){m.textContent='Por favor, informe o seu nome.';return;}
+  m.textContent='Obrigado, '+n+'! A sua confirmação foi registada nesta demonstração para '+p+' pessoa(s).';
+  m.style.color='#d5a94d';
+}
+</script>
+</body>
+</html>
