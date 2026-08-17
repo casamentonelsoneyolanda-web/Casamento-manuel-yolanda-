@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite de Casamento — Manuel & Yolanda</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:#070707;
+  color:#f5ead3;
+  font-family:Georgia,"Times New Roman",serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:18px;
+}
+.card{
+  width:100%;
+  max-width:680px;
+  border:1px solid #b9944a;
+  border-radius:20px;
+  padding:34px 22px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,#241b0d 0,#0b0b0b 42%,#050505 100%);
+  box-shadow:0 0 35px rgba(185,148,74,.15);
+}
+.familias{
+  color:#d8b568;
+  letter-spacing:1px;
+  font-size:14px;
+  margin-bottom:16px;
+}
+h1{
+  color:#e0bf79;
+  font-size:25px;
+  letter-spacing:3px;
+  margin:8px 0 22px;
+}
+.nome{
+  color:#f0d18a;
+  font-size:42px;
+  font-style:italic;
+  line-height:1.15;
+}
+.anel{
+  font-size:30px;
+  margin:12px 0;
+}
+.data{
+  display:inline-block;
+  border:1px solid #b9944a;
+  border-radius:9px;
+  padding:12px 20px;
+  margin:22px 0 15px;
+  color:#efd08b;
+  letter-spacing:1px;
+}
+.versiculo{
+  line-height:1.6;
+  margin:10px auto 25px;
+  max-width:540px;
+}
+.versiculo span{color:#d8b568}
+.convidado{
+  background:#f4ead5;
+  color:#231b0d;
+  border-radius:12px;
+  padding:16px;
+  margin:20px auto;
+  max-width:500px;
+}
+.convidado small{
+  display:block;
+  color:#765821;
+  letter-spacing:2px;
+  margin-bottom:7px;
+}
+.codigo{color:#8a6627;font-weight:bold}
+.geral{
+  display:none;
+  border:1px solid #8e6c32;
+  background:rgba(255,255,255,.04);
+  border-radius:12px;
+  padding:15px;
+  margin:20px auto;
+  max-width:500px;
+  line-height:1.5;
+}
+.detalhes{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin:25px 0;
+}
+.detalhe{
+  border-top:1px solid #80612f;
+  padding:15px 8px;
+  line-height:1.6;
+}
+.detalhe strong{color:#d8b568}
+.final{line-height:1.6}
+.contactos{font-size:13px;color:#c9b991;margin-top:22px}
+@media(max-width:560px){
+  .nome{font-size:34px}
+  h1{font-size:21px}
+  .detalhes{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="familias">A FAMÍLIA BELCHIOR E A FAMÍLIA CAMBIETE</div>
+  <h1>CONVITE DE CASAMENTO</h1>
+
+  <div class="nome">Manuel Belchior</div>
+  <div class="anel">💍 ♡ 💍</div>
+  <div class="nome">Yolanda Manuel</div>
+
+  <div class="data">18 DE DEZEMBRO DE 2026</div>
+
+  <div class="versiculo">
+    “Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.”
+    <br><span>Colossenses 3:14</span>
+  </div>
+
+  <div class="convidado" id="convidado">
+    <small>CONVIDADO(A)</small>
+    <strong id="nomeConvidado"></strong>
+    <div>Código: <span class="codigo" id="codigoConvidado"></span></div>
+  </div>
+
+  <div class="geral" id="conviteGeral">
+    <strong>CONVITE DIGITAL</strong>
+    <p>Este é o convite digital do casamento de Manuel Belchior e Yolanda Manuel.</p>
+    <p>O convite personalizado é apresentado através do código enviado ao convidado.</p>
+  </div>
+
+  <div class="detalhes">
+    <div class="detalhe">
+      <strong>CERIMÓNIA RELIGIOSA</strong><br>
+      Igreja Sé Catedral<br>
+      09H00
+    </div>
+    <div class="detalhe">
+      <strong>RECEPÇÃO</strong><br>
+      Salão da Centralidade
+    </div>
+  </div>
+
+  <div class="final">
+    Será uma alegria celebrar este dia tão especial na sua presença.
+  </div>
+
+  <div class="contactos">
+    Contactos: 930 974 909 · 945 234 287 · 922 291 668 · 936 883 867
+  </div>
+</main>
+
+<script>
+const convidados = {
+  "MBYM-001": "Joseph Fonseca",
+  "MBYM-002": "Abel Bacia e esposa",
+  "MBYM-003": "Americano João",
+  "MBYM-004": "Lucas Mulangui e esposa",
+  "MBYM-005": "Luciano Watela"
+};
+
+const codigo = (new URLSearchParams(window.location.search).get("codigo") || "").trim().toUpperCase();
+const convidado = convidados[codigo];
+
+if (convidado) {
+  document.getElementById("nomeConvidado").textContent = convidado;
+  document.getElementById("codigoConvidado").textContent = codigo;
+} else {
+  document.getElementById("convidado").style.display = "none";
+  document.getElementById("conviteGeral").style.display = "block";
+}
+</script>
+</body>
+</html>
